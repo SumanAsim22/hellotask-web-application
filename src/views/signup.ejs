@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelloTask | Signup</title>
+    <link rel="stylesheet" href="/styles.css">
+    <!-- links for google fonts: Playwrite IT Moderna and Playwrite DE Grund -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&family=Playwrite+IT+Moderna&display=swap" rel="stylesheet">
+    <script src="/src/app.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <ul><a href="/">Home</a></ul>
+            <ul>About</ul>
+            <ul><a href="/">Login</a></ul>
+        </div>
+        <h1 style="margin-top:0px">HelloTask</h1>
+        <br>
+        <p class="subtitle">Say Hello To A Streamlined Workflow</p>
+    </header>
+    <div class="main-display">
+        <div class="form-container">
+            <h3>SignUp</h3>
+            <form action="/signup" method="post" id="signup-form">
+                <div class="form-input">
+                    <label for="email">Email:</label> <br>
+                    <input type="text" id="email" name="email" placeholder="Enter a valid email" required>
+                </div>
+                <div class="form-input">
+                    <label for="username">Username:</label> <br>
+                    <input type="text" id="username" name="username" placeholder="Enter a username" required>
+                </div>
+                <div class="form-input">
+                    <label for="password">Password:</label> <br>
+                    <input type="password" id="password" name="password" placeholder="Use at least 8 characters" required>
+                </div>
+                <div class="form-input">
+                    <label for="confirm-password">Confirm password:</label> <br>
+                    <input type="password" id="confirm-password" name="confirmPassword" 
+                     placeholder="Enter password again" required>
+                </div><br>
+                <button type="submit" class="btn signup-btn" id="signup-btn">Signup</button>
+                <p>Already have an account? <a href="/login">Login</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,488 @@
+* {
+    /* setting default margin and padding to zero */
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    /* body dimensions */
+    min-height: 100vh;
+    min-width: 200px;
+    /* background image styling */
+    background-image: url('/green-background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body, header, .main-display {
+    /* uniform text properties for body, header, and main */
+    font-family: sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* main display in login and signup pages */
+.main-display{
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* navigation bar styles */
+.nav {
+    background: transparent;
+    color: #315839;
+    border-bottom: 1px solid #6A994E;
+    margin-top: 0;
+    /* even distribution of elements in the navigation container */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;  
+}
+
+/* nav links styles */
+.nav ul a { 
+    padding: 5px;
+    color: #315839;
+    text-decoration: none;
+}
+.nav ul a:hover{text-decoration: underline;}
+
+h1, h3{
+    font-family: 'Playwrite IT Moderna', sans-serif;
+    color: #315839;
+    text-align: center;
+}
+h1{ 
+    margin-top:50px;
+    font-size: 40px;
+}
+h3{font-size: 20px;}
+
+.subtitle{
+    font-family: 'Playwrite De Grund', sans-serif;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* general link styles */
+a{text-decoration: none; color: #315839 }
+a:hover{text-decoration: underline; color: black}
+
+/* styles for login and signup forms */
+.form-container{
+    padding: 10px;
+    margin-bottom: 50px;
+    /* blur background */
+    background: transparent;
+    backdrop-filter: blur(20px);
+    border: 2px solid #6A994E;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  
+}
+
+label{ 
+    font-size: 14px;
+    padding-right: 10px;
+}
+
+input, textarea{
+    font-family: sans-serif;
+    padding: 3px;
+    margin-bottom: 10px;
+    border-width: 1px;
+    border-radius: 3px;
+}
+
+#login-form, #signup-form{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+
+.form-input{padding: 5px;}
+
+/* shorten bottom margin of password input area so that 
+'forgot password' text is placed closer to the bottom edge*/
+input[id="password"]{margin-bottom: 2px;}
+
+#forgot-password{
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+/* reset button styles in password reset page */
+.reset-btn{
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    text-decoration: none; 
+    color: #315839;
+    font-size: 16px;
+}
+.reset-btn:hover{
+    text-decoration: underline; 
+    color: black;
+    cursor: pointer;
+}
+
+/*styles for Reset and Cancel links in Reset Password form*/
+.reset-form-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+/*general button style*/
+.btn {
+    position: relative;
+    border-radius: 0.3em;
+    font-weight: 500;
+    text-align: center;
+    text-wrap: nowrap;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/*button click glaze effect*/
+.btn:after {
+    content: "";
+    background: #ffffff;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+.btn:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+.login-btn, .signup-btn{
+    margin: 5px;
+    padding: 5px;
+    width: 180px;
+    color: whitesmoke;
+    background-color: #315839;
+}
+.login-btn:hover, .signup-btn:hover{
+    background-color: #6A994E;
+    color: black;
+    transition: 0.2s;
+}
+
+.red-btn{
+    margin: 0;
+    padding: 3px;
+    width: 80px;
+    color: black;
+    background: none;
+    border:1px solid #BC4749;
+    margin-top: auto;
+    margin-left: auto;
+    font-family: 'Playwrite IT Moderna', sans-serif;
+    font-size: 14px;
+}
+.red-btn:hover{
+    color: black;
+    background-color: #BC4749;
+    transition: 0.2s;
+}
+
+/* similar styles for green buttons */
+.add-task-btn, .logout-btn, 
+.create-task-btn, .update-task-btn, 
+#set-goal-btn, #update-goal-btn{
+    padding: 3px;
+    width: 80px;
+    color: whitesmoke;
+    background-color: #6A994E;
+    border: 1px solid #315839;
+    text-wrap: nowrap;
+    font-family: 'Playwrite IT Moderna', sans-serif;
+    font-size: 14px;
+}
+#set-goal-btn, #update-goal-btn{margin-top: 15px}
+
+.add-task-btn:hover, .logout-btn:hover, 
+.create-task-btn:hover, .update-task-btn:hover, 
+#set-goal-btn:hover, #update-goal-btn:hover{
+    /* background-color: #ede844; #6A994E;#FADA5E;#FFD700;nice&light-->#EEEA62*/
+    background-color: #315839;
+    color: #ffffff;
+    transition: 0.2s;
+}
+
+.close-btn{
+    padding: 0px;
+    margin-top: 0;
+    border-radius: 2px;
+    width: 25px;
+    font-family: sans-serif;
+}
+
+/* button div styles in task details container */
+.buttons-container{
+    border: 1px solid #315839;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.modify-btn, .delete-btn{
+    padding: 3px;
+    width: auto;
+    border: none;
+    background: none;
+}
+.modify-btn:hover{background-color: #6A994E; transition: 0.2s;} 
+
+/* styles for main HelloTask title */
+#page-title{
+   margin: 5px;
+   font-size: 30px; 
+}
+
+.tools-bar{
+    padding: 10px;
+    margin: 15px;
+    border-radius: 5px;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    border: 1px solid #6A994E;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.token-goals{
+    border: 1px solid #6A994E;
+    background: none;
+}
+.token-goals:hover{
+    background-color: #315839;
+    transition: 0.2s;
+}
+
+#trophy-icon{
+    padding: 4px;
+    padding-bottom: 0;
+    height: 30px;
+    width: auto;
+}
+
+.task-board{
+    padding: 5px;
+    margin: 15px;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    border: 1px solid #6A994E;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.task-status{
+    width: 100dvw;
+    background-color: #6A994E;
+    border-radius: 5px;
+    margin: 3px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    text-wrap: nowrap;
+}
+
+/* To Do, In Progress, Completed title styles*/
+.status-title{
+    font-size: 17px;
+    color: whitesmoke;
+}
+
+.task-list{
+    background-color: whitesmoke;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* when task is completed, display task title with strikethrough style */
+.completed{text-decoration: line-through;}
+
+.task{
+    border: 1px solid #6A994E;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 2px;
+    text-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 30px;
+}
+
+input.status-change{ /*checkbox styles*/
+    margin-top: 10px;
+    width: 25px;
+    height: 15px;
+}
+input[type="checkbox"] {accent-color: #315839;}
+
+/* hide task id display  */
+.task-id{display: none}
+
+.title{
+    margin-left: 3px;
+    margin-right: 3px;
+    padding-left: 2px;
+    flex-grow: 2;
+    border-radius: 5px;
+}
+.title:hover{cursor: pointer;}
+
+.token-icon{
+    width: 20px;
+    height: 20px;
+    align-self: center;
+}
+
+.token-container{
+    position: relative; 
+    display: inline-block; 
+}
+
+#task-details-container{
+    margin-left: 15px;
+    padding: 5px;
+    width: 1500px;
+    border: 1px solid #6A994E;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* styles for header area of task details container */
+#details-header{
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    margin-bottom: 15px;
+}
+
+/* styles for 'Task Details' heading */
+#details-header-title{
+    font-family: 'Playwrite IT Moderna', sans-serif;
+    font-size: 14px;
+    text-align: left;
+    text-decoration: solid;
+    text-wrap: nowrap;
+}
+
+/* styles for labels in task details container */
+label[class="details-label"]{
+    padding: 0;
+    color: #315839;
+    font-family: 'Playwrite IT Moderna';
+}
+
+.details-title, .details-tokens, .details-description, .details-priority{
+    padding: 2px;
+    text-decoration: solid;
+    text-wrap: wrap;
+}
+
+.modal-form{
+    position: fixed; /* keep container in place */
+    left: 25%;
+    top: 15%;
+    width: 50%; 
+    height: 50%; 
+    min-width: 200px;
+}
+
+#add-task-form, #modify-task-form, #token-goals-display{
+  background-color: whitesmoke;
+  padding: 10px;
+  border: 1px solid #6A994E;
+  border-radius: 10px;
+}
+
+#title-add, #title-modify, #description-add, #description-modify{
+    width: 95%;
+    resize: none;
+}
+
+#tokens-selector-add, #tokens-selector-modify, .priority{
+    padding: 5px;
+    margin-bottom: 15px;
+    border-radius: 2px;
+    text-wrap: nowrap;
+}
+
+/* note explaining how to choose token for task */
+#token-note{
+    margin: 0;
+    padding: 0;    
+    font-size: 12px;
+}
+
+.modal-form-buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-evenly;
+    padding: 5px;
+}
+
+#token-goals-display{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.token-labels{margin-top: 10px; text-align: center;}
+
+#goal-input{
+    resize: none;
+    margin: 5px;
+    padding: 3px;
+    width: 60px;   
+    height: 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+#token-goal, #tokens-achieved{
+    font-weight: bold;
+    font-size: large}
+
+/* for hidden attribute: override display flex of elements with display none */
+[hidden] { display: none !important; }
+

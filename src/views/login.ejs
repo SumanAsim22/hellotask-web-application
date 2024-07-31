@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelloTask | Login</title>
+    <link rel="stylesheet" href="/styles.css">
+    <!-- links for google fonts: Playwrite IT Moderna and Playwrite DE Grund -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&family=Playwrite+IT+Moderna&display=swap" rel="stylesheet">
+    <script src="/src/app.js" defer></script>
+</head>
+<body>
+    <header>
+        <!-- navigation bar and links -->
+        <div class="nav">
+            <ul><a href="/">Home</a></ul>
+            <ul>About</ul>
+            <ul><a href="/">Login</a></ul>
+        </div>
+        <h1>HelloTask</h1>
+        <br>
+        <p class="subtitle">Say Hello To A Streamlined Workflow</p>
+    </header>
+    <div class="main-display">
+        <div class="form-container">
+            <h3>Login</h3>
+            <form action="/login" method="post" id="login-form">
+                <div class="form-input">
+                    <label for="username">Username:</label> <br>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-input">
+                    <label for="password">Password:</label> <br>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <p id="forgot-password"><a href="/reset_password">Forgot password?</a></p>
+                </div> 
+                <button type="submit" class="btn login-btn" id="login-btn">Login</button>
+                <p>Don't have an account? <a href="/signup">Signup</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

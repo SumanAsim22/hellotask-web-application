@@ -1,0 +1,37 @@
+const mongoose = require('mongoose');
+//get database connection from config.js
+const connection = require('../config');
+
+//create task schema
+const taskSchema = new mongoose.Schema({
+    title: {
+        type: String,
+    },
+    description: {
+        type: String
+    },
+    tokens: {
+        type: Number,
+    },
+    priority: {
+        type: String,
+    },
+    status: {
+        type: String
+    }
+});
+
+//create tasklist schema
+const tasklistSchema = new mongoose.Schema({
+    userid: {
+        type: String,
+    },
+    tasklist: [taskSchema], //each tasklist will be an array of individual tasks
+    tokengoal: {
+        type: Number,
+        default: 0
+    }
+});
+
+const tasks_collection = new mongoose.model('tasklist', tasklistSchema)
+module.exports = tasks_collection;

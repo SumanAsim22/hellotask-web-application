@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelloTask | User</title>
+    <link rel="stylesheet" href="/styles.css" type="text/css">
+    <!-- links for google fonts: Playwrite IT Moderna and Playwrite DE Grund -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&family=Playwrite+IT+Moderna&display=swap" rel="stylesheet">
+    <script src="/script.js" defer></script>
+</head>
+<body>
+    <h1 id="page-title">HelloTask</h1>
+    <div class="tools-bar">
+            <button class="btn add-task-btn" style="width:90px;">+ Add Task</button>
+            <button class="btn token-goals" title="View and modify token goals">
+                <img src="/trophy.png" alt="trophy-icon" id="trophy-icon">
+            </button>
+            <button class="btn logout-btn" onclick="location.href='/logout'">Logout</button>
+    </div>
+    <div class="task-board">
+        <!-- individual task containers for each of the three statuses -->
+        <div class="task-status">
+            <h3 class="status-title">To Do</h3>
+            <div class="task-list to-do">
+            </div>
+        </div>
+        <div class="task-status">
+            <h3 class="status-title">In Progress</h3>
+            <div class="task-list in-progress">
+            </div>
+        </div>
+        <div class="task-status">
+            <h3 class="status-title">Completed</h3>
+            <div class="task-list completed">
+            </div>
+        </div>  
+        <!-- task details container hidden by default -->
+        <div id="task-details-container" hidden>
+            <div id="details-header">
+                <p id="details-header-title">Task Details</p>
+                <button class="btn red-btn close-btn" title="Close container"> X </button>
+            </div>
+            <p class="details-id" style="display: none;"></p>
+            <p class="details-title"></p>
+            <p class="details-description"></p>
+            <p class="details-tokens"></p>
+            <p class="details-priority"></p>
+            <p class="details-status"></p><br>
+            <div class="buttons-container">
+                <!-- actual button content set in script.js depending on task status -->
+                <!-- to-do and in-progress tasks will have both modify and delete buttons -->
+                <!-- completed tasks will only have delete button -->
+            </div>
+        </div>
+    </div>
+    <!-- display add-task form as a popup element -->
+    <div class="modal-form" name="add-task-form" hidden> 
+        <div id="add-task-form">   
+            <h3>Add Task</h3> <br>
+            <label>Task:*</label> <!-- asterisk symbol to indicate required field -->
+            <textarea name="taskTitle" id="title-add" rows="2" wrap="hard"></textarea>
+            <label>Description:</label>
+            <textarea name="taskDescription" id="description-add" rows="2" wrap="hard"></textarea>
+            <div>
+                <label>Tokens:</label>
+                <p id="token-note">On a scale of 1(easy) to 5(hard), how difficult is the task?</p>
+                <select name="tokens" id="tokens-selector-add">
+                    <option value="1" selected>1</option> <!-- 1 selected by default to prevent null token value -->
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div id="priority-add">
+                <label>Priority:</label><br>
+                <input type="radio" name="priority-add" class="priority" id="high" value="high">
+                <label for="high" style="text-decoration: crimson underline;">High</label>
+                <input type="radio" name="priority-add" class="priority" id="medium" value="medium">
+                <label for="medium" style="text-decoration: orange underline;">Medium</label>
+                <input type="radio" name="priority-add" class="priority" id="low" value="low">
+                <label for="low" style="text-decoration: #ede844 underline;">Low</label>
+                <input type="radio" name="priority-add" class="priority" id="none" value="none" checked>
+                <label for="none">None</label>
+            </div>
+            <div class="modal-form-buttons">
+                <div class="btn create-task-btn">Create</div>
+                <div class="btn red-btn cancel-btn">Cancel</div>
+            </div>
+        </div> 
+    </div>
+    <!-- display modify-task form as a popup element -->
+    <div class="modal-form" name="modify-task-form" hidden> 
+        <div id="modify-task-form">   
+            <h3>Modify Task</h3> <br>
+            <p id="task-update-id" hidden></p>
+            <p id="task-update-status" hidden></p>
+            <label>Task:*</label>
+            <textarea name="taskTitle" id="title-modify" rows="2" wrap="hard"></textarea>
+            <label>Description:</label>
+            <textarea name="taskDescription" id="description-modify" rows="2" wrap="hard"></textarea>
+            <div>
+                <label>Tokens:</label>
+                <p id="token-note">On a scale of 1(easy) to 5(hard), how difficult is the task?</p>
+                <select name="tokens" id="tokens-selector-modify">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div id="priority-modify">
+                <label>Priority:</label><br>
+                <input type="radio" name="priority-modify" class="priority" id="high" value="high">
+                <label for="high" style="text-decoration: crimson underline;">High</label>
+                <input type="radio" name="priority-modify" class="priority" id="medium" value="medium">
+                <label for="medium" style="text-decoration: orange underline;">Medium</label>
+                <input type="radio" name="priority-modify" class="priority" id="low" value="low">
+                <label for="low" style="text-decoration: #ede844 underline;">Low</label>
+                <input type="radio" name="priority-modify" class="priority" id="none" value="none" checked>
+                <label for="none">None</label>
+            </div>
+            <div class="modal-form-buttons">
+                <div class="btn update-task-btn">Update</div>
+                <div class="btn red-btn cancel-btn">Cancel</div>
+            </div>
+        </div> 
+    </div>
+    <!-- display token goals display as a popup element -->
+    <div class="modal-form" name="token-goals-display" hidden>
+        <div id="token-goals-display">
+            <!-- assign close-btn class for styling and cancel-btn class for functionality -->
+            <button class="btn red-btn close-btn cancel-btn" title="Close container"> X </button>
+            <img src="/trophy.png" alt="trophy-icon" style="height: 64px; width: 64px;"> 
+            <label class="token-labels">Your token goal for the week</label>
+            <input id="goal-input" type="number" hidden></input>
+            <p id="token-goal"></p>
+            <label class="token-labels">Achieved</label>
+            <p id="tokens-achieved">--</p>
+            <label class="token-labels">Remaining</label>
+            <p id="tokens-remaining">--</p>
+            <label class="token-labels">Tokens available</label>
+            <p id="tokens-available">--</p>
+            <div class="btn" id="set-goal-btn">Set Goal</div>
+            <div class="btn" id="update-goal-btn" hidden>Update</div>
+        </div>
+    </div>
+</body>
+</html>
